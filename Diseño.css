@@ -1,0 +1,106 @@
+:root {
+    --ink: #141E33;
+    --paper: #F8F8F6;
+    --line: #E3E4DE;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+}
+
+.font-display {
+    font-family: 'Sora', sans-serif;
+}
+
+.font-accent {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+}
+
+.font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ---------- Signature element: CEFR level rail ---------- */
+/* Se usa en Hero, Cursos y Metodología como hilo visual reconocible */
+.level-rail {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.level-rail .seg {
+    flex: 1;
+    height: 3px;
+    background: var(--line);
+    position: relative;
+}
+
+.level-rail .node {
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    background: var(--line);
+    flex: none;
+    position: relative;
+    transition: transform .25s ease;
+}
+
+.level-rail .node.active {
+    background: #D9A24B;
+    transform: scale(1.5);
+    box-shadow: 0 0 0 4px rgba(217, 162, 75, .18);
+}
+
+.level-rail .node.passed {
+    background: #22335C;
+}
+
+.level-rail .seg.passed {
+    background: #22335C;
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Focus visibility (accesibilidad) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #D9A24B;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.grain {
+    background-image: radial-gradient(#22335C10 1px, transparent 1px);
+    background-size: 22px 22px;
+}
